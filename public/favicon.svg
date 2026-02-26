@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB6C1" />
+      <stop offset="50%" stop-color="#E6E6FA" />
+      <stop offset="100%" stop-color="#DDA0DD" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Glowing back effect -->
+  <circle cx="50" cy="50" r="45" fill="url(#g)" opacity="0.1" />
+
+  <!-- Robot Antenna -->
+  <line x1="50" y1="12" x2="50" y2="35" stroke="url(#g)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="50" cy="10" r="7" fill="#FF1493"/>
+  <circle cx="50" cy="10" r="3" fill="#FFF"/>
+
+  <!-- Robot Ears (speakers) -->
+  <rect x="15" y="45" width="10" height="20" rx="3" fill="#DDA0DD"/>
+  <rect x="75" y="45" width="10" height="20" rx="3" fill="#DDA0DD"/>
+
+  <!-- Robot Head -->
+  <rect x="22" y="30" width="56" height="48" rx="16" fill="url(#g)" stroke="#FF69B4" stroke-width="2"/>
+  
+  <!-- Screen/Visor -->
+  <rect x="30" y="40" width="40" height="26" rx="8" fill="#FFF" shadow="0 4px 6px rgba(0,0,0,0.1)"/>
+  
+  <!-- Robot Eyes (Cute Anime Style) -->
+  <!-- Left Eye -->
+  <circle cx="42" cy="52" r="5" fill="#FF1493"/>
+  <circle cx="43" cy="50" r="1.5" fill="#FFF"/> <!-- Sparkle -->
+  
+  <!-- Right Eye -->
+  <circle cx="58" cy="52" r="5" fill="#FF1493"/>
+  <circle cx="59" cy="50" r="1.5" fill="#FFF"/> <!-- Sparkle -->
+  
+  <!-- Blush -->
+  <ellipse cx="36" cy="58" rx="3" ry="2" fill="#FF69B4" opacity="0.4"/>
+  <ellipse cx="64" cy="58" rx="3" ry="2" fill="#FF69B4" opacity="0.4"/>
+  
+  <!-- Smile -->
+  <path d="M 46 56 Q 50 61 54 56" stroke="#FF1493" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Magic Sparkles around -->
+  <path d="M 15 25 L 18 30 L 23 30 L 19 33 L 20 38 L 16 35 L 12 38 L 13 33 L 9 30 L 14 30 Z" fill="#FFD700" opacity="0.8" transform="scale(0.5) translate(10, 10)" />
+  <path d="M 85 15 L 88 20 L 93 20 L 89 23 L 90 28 L 86 25 L 82 28 L 83 23 L 79 20 L 84 20 Z" fill="#FFD700" opacity="0.8" transform="scale(0.6) translate(60, 10)" />
+</svg>
