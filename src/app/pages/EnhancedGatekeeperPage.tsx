@@ -1,20 +1,20 @@
-import { motion, useAnimation } from 'motion/react';
-import { Lock, Heart } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { MilkAndMochaBear } from '../components/MilkAndMochaBear';
-import { useAudio } from '../context/AudioContext';
+import { motion, useAnimation } from "motion/react";
+import { Lock, Heart } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { MilkAndMochaBear } from "../components/MilkAndMochaBear";
+import { useAudio } from "../context/AudioContext";
 
 export function EnhancedGatekeeperPage() {
   const navigate = useNavigate();
   const shakeControls = useAnimation();
   const gateControls = useAnimation();
   const mochaControls = useAnimation();
-  
+
   // Set the birthday date here (adjust as needed)
   const birthdayDate = new Date(2026, 1, 25, 0, 0, 0); // February 25, 2026
   const now = new Date();
-  
+
   const [isUnlocked, setIsUnlocked] = useState(now >= birthdayDate);
   const [isDissolving, setIsDissolving] = useState(false);
   const [showHearts, setShowHearts] = useState(false);
@@ -49,7 +49,7 @@ export function EnhancedGatekeeperPage() {
     gateControls.start({
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.8, ease: 'easeOut' }
+      transition: { duration: 0.8, ease: "easeOut" },
     });
 
     return () => clearInterval(timer);
@@ -69,7 +69,7 @@ export function EnhancedGatekeeperPage() {
           opacity: [1, 1, 0],
           scale: [1, 1.1, 0.8],
           rotate: [0, 5, -5],
-          filter: ['blur(0px)', 'blur(10px)', 'blur(30px)'],
+          filter: ["blur(0px)", "blur(10px)", "blur(30px)"],
           transition: { duration: 2, ease: [0.4, 0, 0.2, 1] },
         }),
         mochaControls.start({
@@ -77,13 +77,13 @@ export function EnhancedGatekeeperPage() {
           opacity: [1, 1, 0],
           scale: [1, 1.4, 0],
           rotate: [0, 10, -10],
-          transition: { duration: 1.8, ease: 'backIn' }
-        })
+          transition: { duration: 1.8, ease: "backIn" },
+        }),
       ]);
 
       // Navigation after the 2-second animation
       setTimeout(() => {
-        navigate('/home');
+        navigate("/home");
       }, 2000);
     } else {
       // Shake heart and trigger "shhh" animation
@@ -92,7 +92,7 @@ export function EnhancedGatekeeperPage() {
         rotate: [-5, 5, -5, 5, 0],
         transition: { duration: 0.5 },
       });
-      
+
       mochaControls.start({
         scale: [1, 1.1, 1],
         rotate: [0, -5, 5, -5, 0],
@@ -108,9 +108,9 @@ export function EnhancedGatekeeperPage() {
         className="absolute inset-0"
         animate={{
           background: [
-            'radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.3), transparent 50%)',
-            'radial-gradient(circle at 80% 70%, rgba(221, 160, 221, 0.3), transparent 50%)',
-            'radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.3), transparent 50%)',
+            "radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.3), transparent 50%)",
+            "radial-gradient(circle at 80% 70%, rgba(221, 160, 221, 0.3), transparent 50%)",
+            "radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.3), transparent 50%)",
           ],
         }}
         transition={{ duration: 8, repeat: Infinity }}
@@ -139,13 +139,13 @@ export function EnhancedGatekeeperPage() {
               transition={{
                 duration: 2 + Math.random(),
                 delay: Math.random() * 0.5,
-                ease: 'easeOut',
+                ease: "easeOut",
               }}
             >
               <Heart className="w-8 h-8 fill-pink-400 stroke-pink-500" />
             </motion.div>
           ))}
-          
+
           {/* Lace effect */}
           {[...Array(20)].map((_, i) => (
             <motion.div
@@ -191,7 +191,7 @@ export function EnhancedGatekeeperPage() {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 100, delay: 0.2 }}
+          transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         >
           {/* Glassmorphism 2.0 card */}
           <div className="relative rounded-3xl overflow-hidden p-[3px]">
@@ -199,27 +199,32 @@ export function EnhancedGatekeeperPage() {
             <motion.div
               className="absolute inset-0"
               style={{
-                background: 'linear-gradient(90deg, #FFB6C1, #DDA0DD, #E6E6FA, #FFB6C1)',
-                backgroundSize: '300% 100%',
+                background:
+                  "linear-gradient(90deg, #FFB6C1, #DDA0DD, #E6E6FA, #FFB6C1)",
+                backgroundSize: "300% 100%",
               }}
               animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
-                ease: 'linear',
+                ease: "linear",
               }}
             />
-            
+
             <div className="relative backdrop-blur-2xl bg-white/20 rounded-3xl shadow-2xl p-8">
               {/* Mocha Bear Guard */}
               <motion.div
                 className="flex justify-center mb-4 md:mb-6"
                 animate={mochaControls}
               >
-                <MilkAndMochaBear type="mocha" size={window.innerWidth < 768 ? 80 : 100} holding="heart" />
-                
+                <MilkAndMochaBear
+                  type="mocha"
+                  size={window.innerWidth < 768 ? 80 : 100}
+                  holding="heart"
+                />
+
                 {/* "Shhh" speech bubble */}
                 {!isUnlocked && (
                   <motion.div
@@ -240,16 +245,18 @@ export function EnhancedGatekeeperPage() {
               <motion.h1
                 className="text-2xl md:text-3xl font-bold text-center mb-1 md:mb-2 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
                 animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
                 transition={{ duration: 5, repeat: Infinity }}
-                style={{ backgroundSize: '200% auto' }}
+                style={{ backgroundSize: "200% auto" }}
               >
-                {isUnlocked ? '🎉 Time to Celebrate!' : '✨ Locked Until...'}
+                {isUnlocked ? "🎉 Time to Celebrate!" : "✨ Locked Until..."}
               </motion.h1>
 
               <p className="text-center text-sm md:text-base text-pink-700 mb-4 md:mb-6 font-medium">
-                {isUnlocked ? "Saara's Birthday Celebration" : "Saara's Special Day"}
+                {isUnlocked
+                  ? "Sania's Birthday Celebration"
+                  : "Sania's Special Day"}
               </p>
 
               {!isUnlocked ? (
@@ -257,10 +264,10 @@ export function EnhancedGatekeeperPage() {
                   {/* Countdown */}
                   <div className="grid grid-cols-4 gap-2 md:gap-3 mb-6">
                     {[
-                      { label: 'Days', value: timeLeft.days },
-                      { label: 'Hrs', value: timeLeft.hours },
-                      { label: 'Mins', value: timeLeft.minutes },
-                      { label: 'Secs', value: timeLeft.seconds },
+                      { label: "Days", value: timeLeft.days },
+                      { label: "Hrs", value: timeLeft.hours },
+                      { label: "Mins", value: timeLeft.minutes },
+                      { label: "Secs", value: timeLeft.seconds },
                     ].map((item, index) => (
                       <motion.div
                         key={item.label}
@@ -268,7 +275,7 @@ export function EnhancedGatekeeperPage() {
                         initial={{ scale: 0, rotate: -180 }}
                         animate={{ scale: 1, rotate: 0 }}
                         transition={{
-                          type: 'spring',
+                          type: "spring",
                           stiffness: 200,
                           delay: index * 0.1,
                         }}
@@ -278,9 +285,9 @@ export function EnhancedGatekeeperPage() {
                           key={item.value}
                           initial={{ y: -20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
-                          transition={{ type: 'spring', stiffness: 300 }}
+                          transition={{ type: "spring", stiffness: 300 }}
                         >
-                          {item.value.toString().padStart(2, '0')}
+                          {item.value.toString().padStart(2, "0")}
                         </motion.div>
                         <div className="text-[10px] md:text-xs text-pink-600 text-center font-medium">
                           {item.label}
@@ -304,7 +311,7 @@ export function EnhancedGatekeeperPage() {
                   className="text-center mb-6"
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
-                  transition={{ type: 'spring', stiffness: 200 }}
+                  transition={{ type: "spring", stiffness: 200 }}
                 >
                   <motion.div
                     animate={{
@@ -315,7 +322,9 @@ export function EnhancedGatekeeperPage() {
                   >
                     <Heart className="w-16 h-16 mx-auto fill-pink-500 stroke-pink-600 mb-2" />
                   </motion.div>
-                  <p className="text-pink-700 font-semibold">The gate is open! 💖</p>
+                  <p className="text-pink-700 font-semibold">
+                    The gate is open! 💖
+                  </p>
                 </motion.div>
               )}
 
@@ -324,14 +333,14 @@ export function EnhancedGatekeeperPage() {
                 onClick={handleEarlyClick}
                 className={`w-full py-4 rounded-2xl font-bold shadow-lg transition-all ${
                   isUnlocked
-                    ? 'bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 text-white'
-                    : 'bg-gradient-to-r from-gray-300 to-gray-400 text-gray-600'
+                    ? "bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 text-white"
+                    : "bg-gradient-to-r from-gray-300 to-gray-400 text-gray-600"
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 disabled={isDissolving}
               >
-                {isUnlocked ? '✨ Enter Celebration ✨' : '🔒 Not Yet...'}
+                {isUnlocked ? "✨ Enter Celebration ✨" : "🔒 Not Yet..."}
               </motion.button>
 
               {!isUnlocked && (

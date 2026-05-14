@@ -5,10 +5,11 @@
 ### Option 1: Vercel (Recommended - Easiest)
 
 1. **Push to GitHub**
+
    ```bash
    git init
    git add .
-   git commit -m "Initial commit - Birthday app for Saara"
+   git commit -m "Initial commit - Birthday app for Sania"
    git branch -M main
    git remote add origin YOUR_GITHUB_REPO
    git push -u origin main
@@ -20,7 +21,7 @@
    - Import your GitHub repository
    - Vercel auto-detects Vite
    - Click "Deploy"
-   - Done! You'll get a URL like: `saara-birthday.vercel.app`
+   - Done! You'll get a URL like: `Sania-birthday.vercel.app`
 
 **⏱️ Time**: ~3 minutes
 
@@ -29,6 +30,7 @@
 ### Option 2: Netlify
 
 1. **Build the app**
+
    ```bash
    npm run build
    ```
@@ -36,7 +38,7 @@
 2. **Deploy to Netlify**
    - Go to [netlify.com](https://netlify.com)
    - Drag and drop the `dist` folder
-   - Done! You'll get a URL like: `saara-birthday.netlify.app`
+   - Done! You'll get a URL like: `Sania-birthday.netlify.app`
 
 **⏱️ Time**: ~5 minutes
 
@@ -45,11 +47,13 @@
 ### Option 3: GitHub Pages
 
 1. **Install gh-pages**
+
    ```bash
    npm install --save-dev gh-pages
    ```
 
 2. **Add to package.json scripts**
+
    ```json
    {
      "scripts": {
@@ -61,11 +65,12 @@
    ```
 
 3. **Update vite.config**
+
    ```ts
    export default defineConfig({
-     base: '/REPO_NAME/',
+     base: "/REPO_NAME/",
      // ... rest of config
-   })
+   });
    ```
 
 4. **Deploy**
@@ -80,6 +85,7 @@
 ## 🎨 Pre-Deployment Checklist
 
 ### Essential Changes
+
 - [ ] Set correct birthday date in `EnhancedGatekeeperPage.tsx`
 - [ ] Customize all memory cards in `MemoriesPage.tsx`
 - [ ] Personalize reasons in `EnhancedReasonsPage.tsx`
@@ -87,6 +93,7 @@
 - [ ] Update welcome message in `EnhancedHomePage.tsx`
 
 ### Optional Enhancements
+
 - [ ] Add real audio files for music
 - [ ] Replace gradient backgrounds with photos
 - [ ] Add actual lo-fi music track
@@ -95,6 +102,7 @@
 - [ ] Add your own images
 
 ### Testing
+
 - [ ] Test on mobile device
 - [ ] Try all swipe gestures
 - [ ] Verify countdown timer works
@@ -116,7 +124,7 @@
 
 2. **Custom Short Link**
    - Use [bit.ly](https://bitly.com) or [tinyurl.com](https://tinyurl.com)
-   - Create: `bit.ly/saara-birthday`
+   - Create: `bit.ly/Sania-birthday`
 
 3. **Social Media Card**
    - Create a beautiful image with the link
@@ -133,13 +141,15 @@
 ## 🎯 Custom Domain (Optional)
 
 ### With Vercel:
-1. Buy domain (e.g., `saara-birthday.com`)
+
+1. Buy domain (e.g., `Sania-birthday.com`)
 2. In Vercel dashboard → Settings → Domains
 3. Add your domain
 4. Update DNS records as instructed
 5. Done!
 
 ### With Netlify:
+
 1. Buy domain
 2. In Netlify dashboard → Domain settings
 3. Add custom domain
@@ -155,12 +165,14 @@
 ### Before Deploy:
 
 1. **Optimize Images** (if using real photos)
+
    ```bash
    # Use imageoptim.com or tinypng.com
    # Compress all images to < 500KB
    ```
 
 2. **Check Bundle Size**
+
    ```bash
    npm run build
    # Check dist folder size - should be < 2MB
@@ -196,6 +208,7 @@
 ## 🛡️ Password Protection (Optional)
 
 ### Vercel:
+
 ```bash
 # In vercel.json
 {
@@ -212,6 +225,7 @@
 ```
 
 ### Netlify:
+
 ```toml
 # In netlify.toml
 [build]
@@ -233,9 +247,13 @@
 ### Add Simple Analytics:
 
 1. **Google Analytics**
+
    ```tsx
    // In index.html <head>
-   <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"></script>
+   <script
+     async
+     src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"
+   ></script>
    ```
 
 2. **Vercel Analytics**
@@ -246,7 +264,7 @@
    ```tsx
    // Count page views
    useEffect(() => {
-     fetch('/api/track', { method: 'POST' });
+     fetch("/api/track", { method: "POST" });
    }, []);
    ```
 
@@ -260,14 +278,15 @@
 
 1. **Send link at midnight** (or scheduled time)
 2. **Include a message**:
+
    ```
-   Happy Birthday Saara! 🎂✨
-   
+   Happy Birthday Sania! 🎂✨
+
    I've created something special for you...
    Open this link for your birthday surprise!
-   
+
    [YOUR_LINK]
-   
+
    Best viewed on mobile phone 📱
    Make sure sound is on! 🔊
    ```
@@ -277,6 +296,7 @@
 5. **Take screenshots** of her reaction!
 
 ### Backup Plan:
+
 - Have link saved in multiple places
 - Test link on another device beforehand
 - Keep a screen recording of the app
@@ -286,23 +306,26 @@
 ## 🐛 Common Deployment Issues
 
 ### Issue: Blank page after deploy
+
 **Fix**: Check console for errors, ensure base URL is correct
 
 ### Issue: Animations not working
+
 **Fix**: Make sure Motion package is in dependencies, not devDependencies
 
 ### Issue: 404 on refresh
+
 **Fix**: Configure SPA routing:
+
 ```json
 // vercel.json
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
 ```
 
 ### Issue: Images not loading
+
 **Fix**: Use relative paths, ensure images are in public folder
 
 ---
@@ -353,6 +376,7 @@
 6. Check mobile vs desktop view
 
 ### Emergency Fixes:
+
 - Redeploy from working commit
 - Use backup deployment
 - Share screen recording instead
@@ -377,6 +401,6 @@
 
 ### 🚀 Ready to Launch!
 
-**Good luck and happy birthday to Saara! 🎂✨**
+**Good luck and happy birthday to Sania! 🎂✨**
 
 </div>

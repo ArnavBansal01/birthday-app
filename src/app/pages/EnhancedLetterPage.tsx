@@ -1,14 +1,14 @@
-import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { Mail, Heart, Sparkles } from 'lucide-react';
-import { useRef } from 'react';
-import { PhysicsBackground } from '../components/PhysicsBackground';
-import { GlowingBottomNav } from '../components/GlowingBottomNav';
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import { Mail, Heart, Sparkles } from "lucide-react";
+import { useRef } from "react";
+import { PhysicsBackground } from "../components/PhysicsBackground";
+import { GlowingBottomNav } from "../components/GlowingBottomNav";
 
 export function EnhancedLetterPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end'],
+    offset: ["start start", "end end"],
   });
 
   // Smooth spring animation for scroll
@@ -19,11 +19,11 @@ export function EnhancedLetterPage() {
   });
 
   // Milk bear follows scroll (right side)
-  const milkY = useTransform(smoothProgress, [0, 1], ['0%', '80%']);
+  const milkY = useTransform(smoothProgress, [0, 1], ["0%", "80%"]);
   const milkRotate = useTransform(smoothProgress, [0, 0.5, 1], [0, 5, -5]);
 
   // Mocha bear follows scroll (left side)
-  const mochaY = useTransform(smoothProgress, [0, 1], ['10%', '90%']);
+  const mochaY = useTransform(smoothProgress, [0, 1], ["10%", "90%"]);
   const mochaRotate = useTransform(smoothProgress, [0, 0.5, 1], [0, -5, 5]);
 
   const letterParagraphs = [
@@ -66,7 +66,7 @@ export function EnhancedLetterPage() {
   ];
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-pink-200 pb-60 relative overflow-x-hidden"
     >
@@ -99,7 +99,7 @@ export function EnhancedLetterPage() {
         transition={{
           duration: 3,
           repeat: Infinity,
-          ease: 'easeInOut',
+          ease: "easeInOut",
         }}
       >
         <MilkBearSticker size={50} />
@@ -114,7 +114,7 @@ export function EnhancedLetterPage() {
         transition={{
           duration: 3,
           repeat: Infinity,
-          ease: 'easeInOut',
+          ease: "easeInOut",
           delay: 0.5,
         }}
       >
@@ -127,7 +127,7 @@ export function EnhancedLetterPage() {
           className="max-w-2xl mx-auto text-center mb-8 sticky top-0 bg-gradient-to-b from-pink-100 via-purple-100/90 to-transparent pt-4 pb-8 backdrop-blur-sm z-30"
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 100 }}
+          transition={{ type: "spring", stiffness: 100 }}
         >
           <motion.div
             className="inline-flex items-center gap-2 mb-4"
@@ -137,7 +137,7 @@ export function EnhancedLetterPage() {
             <Mail className="w-8 h-8 text-pink-600" />
             <Sparkles className="w-6 h-6 text-purple-500" />
           </motion.div>
-          
+
           <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent px-4">
             A Letter for You
           </h1>
@@ -151,7 +151,7 @@ export function EnhancedLetterPage() {
           className="w-[82vw] md:w-full max-w-2xl mx-auto mb-8"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 100, delay: 0.2 }}
+          transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         >
           {/* Glassmorphism 2.0 wrapper */}
           <div className="relative rounded-3xl overflow-hidden p-[3px]">
@@ -159,24 +159,27 @@ export function EnhancedLetterPage() {
             <motion.div
               className="absolute inset-0"
               style={{
-                background: 'linear-gradient(90deg, #FFB6C1, #DDA0DD, #E6E6FA, #FFC0CB, #FFB6C1)',
-                backgroundSize: '400% 100%',
+                background:
+                  "linear-gradient(90deg, #FFB6C1, #DDA0DD, #E6E6FA, #FFC0CB, #FFB6C1)",
+                backgroundSize: "400% 100%",
               }}
               animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{
                 duration: 5,
                 repeat: Infinity,
-                ease: 'linear',
+                ease: "linear",
               }}
             />
-            
+
             <div className="relative backdrop-blur-2xl bg-white/20 rounded-3xl shadow-2xl overflow-hidden">
               <div className="bg-gradient-to-r from-pink-300/30 to-purple-300/30 backdrop-blur-sm p-6 border-b-2 border-white/20">
                 <div className="flex items-center gap-3">
                   <Heart className="w-6 h-6 text-pink-600 fill-pink-600" />
-                  <h2 className="text-2xl font-bold text-pink-900">Dear Saara,</h2>
+                  <h2 className="text-2xl font-bold text-pink-900">
+                    Dear Sania,
+                  </h2>
                 </div>
               </div>
 
@@ -187,7 +190,7 @@ export function EnhancedLetterPage() {
                   initial={{ scale: 0, rotate: -180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
-                  transition={{ type: 'spring', stiffness: 200 }}
+                  transition={{ type: "spring", stiffness: 200 }}
                 >
                   <div className="flex gap-2">
                     {[...Array(5)].map((_, i) => (
@@ -215,23 +218,25 @@ export function EnhancedLetterPage() {
                   className="relative rounded-2xl overflow-hidden p-[2px] my-8"
                   initial={{ scale: 0.8, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ type: 'spring', stiffness: 200 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ type: "spring", stiffness: 200 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400" />
                   <div className="relative backdrop-blur-xl bg-white/40 rounded-2xl p-6">
                     <p className="text-pink-900 leading-relaxed italic text-center font-medium">
-                      "You are braver than you believe, stronger than you seem, smarter than you think,
-                      and loved more than you know."
+                      "You are braver than you believe, stronger than you seem,
+                      smarter than you think, and loved more than you know."
                     </p>
                   </div>
                 </motion.div>
 
                 {/* Final wishes */}
                 <BloomingParagraph delay={0.9}>
-                  Here's to you, Saara—to your dreams, your journey, and the incredible person you
-                  continue to become. May your day be filled with love, laughter, cake, and all your
-                  favorite things. You deserve nothing less than the most magical birthday ever! 🎉✨💖
+                  Here's to you, Sania—to your dreams, your journey, and the
+                  incredible person you continue to become. May your day be
+                  filled with love, laughter, cake, and all your favorite
+                  things. You deserve nothing less than the most magical
+                  birthday ever! 🎉✨💖
                 </BloomingParagraph>
 
                 {/* Signature */}
@@ -239,7 +244,7 @@ export function EnhancedLetterPage() {
                   className="text-right pt-8 border-t-2 border-pink-300/30"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
+                  viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.8, delay: 1 }}
                 >
                   <p className="text-pink-900 font-semibold text-lg mb-2">
@@ -252,7 +257,9 @@ export function EnhancedLetterPage() {
                     >
                       <Heart className="w-5 h-5 text-pink-600 fill-pink-600" />
                     </motion.div>
-                    <p className="text-pink-700 italic">Someone who cares deeply about you</p>
+                    <p className="text-pink-700 italic">
+                      Someone who cares deeply about you
+                    </p>
                     <motion.div
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
@@ -268,7 +275,7 @@ export function EnhancedLetterPage() {
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ type: 'spring', stiffness: 200, delay: 1.2 }}
+                  transition={{ type: "spring", stiffness: 200, delay: 1.2 }}
                 >
                   {[...Array(7)].map((_, i) => (
                     <motion.div
@@ -296,17 +303,23 @@ export function EnhancedLetterPage() {
 }
 
 // Blooming paragraph component
-function BloomingParagraph({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function BloomingParagraph({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) {
   return (
     <motion.p
       className="text-pink-900 leading-relaxed text-base md:text-lg"
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: true, margin: "-80px" }}
       transition={{
         duration: 0.8,
         delay,
-        type: 'spring',
+        type: "spring",
         stiffness: 100,
       }}
     >
@@ -318,37 +331,40 @@ function BloomingParagraph({ children, delay = 0 }: { children: React.ReactNode;
 // Milk bear sticker
 function MilkBearSticker({ size = 80 }: { size?: number }) {
   return (
-    <motion.div
-      className="relative"
-      whileHover={{ scale: 1.1, rotate: 5 }}
-    >
+    <motion.div className="relative" whileHover={{ scale: 1.1, rotate: 5 }}>
       <svg width={size} height={size} viewBox="0 0 100 100">
         {/* Ears */}
         <circle cx={25} cy={25} r={15} fill="#F5F5F5" />
         <circle cx={75} cy={25} r={15} fill="#F5F5F5" />
         <circle cx={25} cy={25} r={10} fill="#FFE4E1" />
         <circle cx={75} cy={25} r={10} fill="#FFE4E1" />
-        
+
         {/* Head */}
         <circle cx={50} cy={50} r={30} fill="#F5F5F5" />
-        
+
         {/* Face */}
         <circle cx={50} cy={50} r={22} fill="#FFE4E1" />
-        
+
         {/* Eyes */}
         <circle cx={42} cy={45} r={3} fill="#2D2D2D" />
         <circle cx={58} cy={45} r={3} fill="#2D2D2D" />
-        
+
         {/* Nose */}
         <ellipse cx={50} cy={55} rx={4} ry={3} fill="#2D2D2D" />
-        
+
         {/* Smile */}
-        <path d="M 45 58 Q 50 62 55 58" stroke="#2D2D2D" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-        
+        <path
+          d="M 45 58 Q 50 62 55 58"
+          stroke="#2D2D2D"
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinecap="round"
+        />
+
         {/* Blush */}
         <circle cx={35} cy={52} r={4} fill="#FFB6C1" opacity="0.5" />
         <circle cx={65} cy={52} r={4} fill="#FFB6C1" opacity="0.5" />
-        
+
         {/* Heart */}
         <motion.path
           d="M 50,75 C 48,72 43,72 41,76 C 41,80 50,85 50,85 C 50,85 59,80 59,76 C 59,72 54,72 50,75 Z"
@@ -367,42 +383,45 @@ function MilkBearSticker({ size = 80 }: { size?: number }) {
 // Mocha bear sticker
 function MochaBearSticker({ size = 80 }: { size?: number }) {
   return (
-    <motion.div
-      className="relative"
-      whileHover={{ scale: 1.1, rotate: -5 }}
-    >
+    <motion.div className="relative" whileHover={{ scale: 1.1, rotate: -5 }}>
       <svg width={size} height={size} viewBox="0 0 100 100">
         {/* Ears */}
         <circle cx={25} cy={25} r={15} fill="#8B6F47" />
         <circle cx={75} cy={25} r={15} fill="#8B6F47" />
         <circle cx={25} cy={25} r={10} fill="#D4A574" />
         <circle cx={75} cy={25} r={10} fill="#D4A574" />
-        
+
         {/* Head */}
         <circle cx={50} cy={50} r={30} fill="#8B6F47" />
-        
+
         {/* Face */}
         <circle cx={50} cy={50} r={22} fill="#D4A574" />
-        
+
         {/* Eyes */}
         <circle cx={42} cy={45} r={3} fill="#2D2D2D" />
         <circle cx={58} cy={45} r={3} fill="#2D2D2D" />
-        
+
         {/* Nose */}
         <ellipse cx={50} cy={55} rx={4} ry={3} fill="#2D2D2D" />
-        
+
         {/* Smile */}
-        <path d="M 45 58 Q 50 62 55 58" stroke="#2D2D2D" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-        
+        <path
+          d="M 45 58 Q 50 62 55 58"
+          stroke="#2D2D2D"
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinecap="round"
+        />
+
         {/* Blush */}
         <circle cx={35} cy={52} r={4} fill="#DDA0DD" opacity="0.5" />
         <circle cx={65} cy={52} r={4} fill="#DDA0DD" opacity="0.5" />
-        
+
         {/* Sparkles */}
         <motion.g
           animate={{ rotate: 360 }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-          style={{ transformOrigin: '50px 75px' }}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          style={{ transformOrigin: "50px 75px" }}
         >
           <path d="M 50,70 L 52,75 L 50,80 L 48,75 Z" fill="#FFD700" />
           <path d="M 45,75 L 50,77 L 55,75 L 50,73 Z" fill="#FFD700" />

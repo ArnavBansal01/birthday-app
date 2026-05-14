@@ -1,4 +1,4 @@
-# Contributing to Saara's Birthday App
+# Contributing to Sania's Birthday App
 
 First off, thank you for considering contributing to this project! It's an emotional and personal project, and we appreciate any help to make it even more special.
 

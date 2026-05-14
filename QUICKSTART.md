@@ -3,6 +3,7 @@
 ## 🎯 5-Minute Setup
 
 ### Step 1: Set Birthday Date (30 seconds)
+
 ```tsx
 // File: /src/app/pages/EnhancedGatekeeperPage.tsx
 // Line: 14
@@ -14,6 +15,7 @@ const birthdayDate = new Date(2026, 2, 25, 0, 0, 0);
 ```
 
 ### Step 2: Add Memories (2 minutes)
+
 ```tsx
 // File: /src/app/pages/MemoriesPage.tsx
 // Line: 9
@@ -21,35 +23,37 @@ const birthdayDate = new Date(2026, 2, 25, 0, 0, 0);
 const memories = [
   {
     id: 1,
-    title: 'The Day We Met',                    // Keep short!
-    description: 'Your smile lit up the room',   // ~40 chars max
-    date: 'Summer 2023',                         // Any date format
-    imageColor: 'bg-gradient-to-br from-pink-300 to-rose-300',
+    title: "The Day We Met", // Keep short!
+    description: "Your smile lit up the room", // ~40 chars max
+    date: "Summer 2023", // Any date format
+    imageColor: "bg-gradient-to-br from-pink-300 to-rose-300",
   },
   // Add 5-8 more...
 ];
 ```
 
 ### Step 3: Customize Reasons (1 minute)
+
 ```tsx
 // File: /src/app/pages/EnhancedReasonsPage.tsx
 // Line: 7
 
 const reasons = [
-  { text: 'Your smile brightens my day', bear: 'milk' },
-  { text: 'Your kindness inspires me', bear: 'mocha' },
+  { text: "Your smile brightens my day", bear: "milk" },
+  { text: "Your kindness inspires me", bear: "mocha" },
   // 9 total (for 3x3 grid)
 ];
 ```
 
 ### Step 4: Write the Letter (2 minutes)
+
 ```tsx
 // File: /src/app/pages/EnhancedLetterPage.tsx
 // Line: 29
 
 const letterParagraphs = [
-  { text: 'Your heartfelt paragraph here...', delay: 0 },
-  { text: 'Another meaningful paragraph...', delay: 0.1 },
+  { text: "Your heartfelt paragraph here...", delay: 0 },
+  { text: "Another meaningful paragraph...", delay: 0.1 },
   // Add 6-10 paragraphs
 ];
 ```
@@ -61,14 +65,14 @@ const letterParagraphs = [
 Copy-paste these for memory cards:
 
 ```tsx
-'bg-gradient-to-br from-pink-300 to-rose-300'      // Soft Pink
-'bg-gradient-to-br from-purple-300 to-pink-300'    // Purple Pink
-'bg-gradient-to-br from-blue-300 to-purple-300'    // Blue Purple
-'bg-gradient-to-br from-yellow-300 to-pink-300'    // Warm Sunset
-'bg-gradient-to-br from-green-300 to-teal-300'     // Fresh Mint
-'bg-gradient-to-br from-red-300 to-pink-300'       // Rosy Red
-'bg-gradient-to-br from-indigo-300 to-purple-300'  // Deep Purple
-'bg-gradient-to-br from-orange-300 to-pink-300'    // Peachy
+"bg-gradient-to-br from-pink-300 to-rose-300"; // Soft Pink
+"bg-gradient-to-br from-purple-300 to-pink-300"; // Purple Pink
+"bg-gradient-to-br from-blue-300 to-purple-300"; // Blue Purple
+"bg-gradient-to-br from-yellow-300 to-pink-300"; // Warm Sunset
+"bg-gradient-to-br from-green-300 to-teal-300"; // Fresh Mint
+"bg-gradient-to-br from-red-300 to-pink-300"; // Rosy Red
+"bg-gradient-to-br from-indigo-300 to-purple-300"; // Deep Purple
+"bg-gradient-to-br from-orange-300 to-pink-300"; // Peachy
 ```
 
 ---
@@ -76,6 +80,7 @@ Copy-paste these for memory cards:
 ## 🚀 Deploy in 3 Minutes
 
 ### Option 1: Vercel (Easiest)
+
 ```bash
 # 1. Push to GitHub
 git init
@@ -91,6 +96,7 @@ git push
 ```
 
 ### Option 2: Netlify (Drag & Drop)
+
 ```bash
 # 1. Build
 npm run build
@@ -141,21 +147,22 @@ Quick verification before sending:
 
 ## 🎯 File Locations Cheat Sheet
 
-| What to Change | File | Line |
-|----------------|------|------|
-| Birthday Date | `EnhancedGatekeeperPage.tsx` | 14 |
-| Name | Multiple files | Search "Saara" |
-| Memories | `MemoriesPage.tsx` | 9 |
-| Reasons | `EnhancedReasonsPage.tsx` | 7 |
-| Letter | `EnhancedLetterPage.tsx` | 29 |
-| Welcome Message | `EnhancedHomePage.tsx` | 304 |
-| Colors | `theme.css` | Various |
+| What to Change  | File                         | Line           |
+| --------------- | ---------------------------- | -------------- |
+| Birthday Date   | `EnhancedGatekeeperPage.tsx` | 14             |
+| Name            | Multiple files               | Search "Sania" |
+| Memories        | `MemoriesPage.tsx`           | 9              |
+| Reasons         | `EnhancedReasonsPage.tsx`    | 7              |
+| Letter          | `EnhancedLetterPage.tsx`     | 29             |
+| Welcome Message | `EnhancedHomePage.tsx`       | 304            |
+| Colors          | `theme.css`                  | Various        |
 
 ---
 
 ## 💡 Pro Tips
 
 ### For Best Results:
+
 1. ⏰ **Timing**: Send at midnight or wake-up time
 2. 📱 **Device**: Test on her actual phone model
 3. 🎵 **Audio**: Add real music file if possible
@@ -165,6 +172,7 @@ Quick verification before sending:
 7. 🎁 **Surprise**: Add at end of letter if there's a real gift
 
 ### Common Mistakes to Avoid:
+
 - ❌ Month in date (use 0-11, not 1-12)
 - ❌ Too many memories (6-8 is perfect)
 - ❌ Reasons too long (under 50 characters)
@@ -177,15 +185,19 @@ Quick verification before sending:
 ## 🐛 Quick Fixes
 
 ### Issue: Page is blank
+
 **Fix**: Check browser console (F12) for errors
 
 ### Issue: Countdown wrong
+
 **Fix**: Remember month is 0-based (February = 1, not 2)
 
 ### Issue: Cards won't swipe
+
 **Fix**: Parent div needs `height: 500px`
 
 ### Issue: Animations laggy
+
 **Fix**: Reduce confetti to 200 pieces on mobile
 
 ---
@@ -195,6 +207,7 @@ Quick verification before sending:
 If something breaks:
 
 1. **Revert Changes**
+
    ```bash
    git checkout HEAD~1
    ```
@@ -216,6 +229,7 @@ If something breaks:
 ## 🎉 Launch Sequence
 
 ### T-24 Hours:
+
 - [ ] All customizations done
 - [ ] Tested thoroughly
 - [ ] Deployed to production
@@ -223,12 +237,14 @@ If something breaks:
 - [ ] Created QR code (optional)
 
 ### T-1 Hour:
+
 - [ ] Test link on multiple devices
 - [ ] Prepare message to send
 - [ ] Have backup screenshots ready
 - [ ] Be available for support
 
 ### T-0 (Birthday Time!):
+
 - [ ] Send the link
 - [ ] Wait for reaction
 - [ ] Be ready to help if needed
@@ -243,6 +259,7 @@ If something breaks:
 **Time to make someone's birthday unforgettable! ✨**
 
 Need more help? Check:
+
 - [Full Documentation](./DOCUMENTATION.md)
 - [Customization Guide](./CUSTOMIZATION.md)
 - [Deployment Guide](./DEPLOYMENT.md)

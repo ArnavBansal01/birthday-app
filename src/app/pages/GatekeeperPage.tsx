@@ -1,17 +1,17 @@
-import { motion } from 'motion/react';
-import { Heart, Lock, Unlock } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { MilkAndMochaBear } from '../components/MilkAndMochaBear';
+import { motion } from "motion/react";
+import { Heart, Lock, Unlock } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { MilkAndMochaBear } from "../components/MilkAndMochaBear";
 
 export function GatekeeperPage() {
   const navigate = useNavigate();
-  
+
   // Set the birthday date here (YYYY, MM-1, DD) - Currently set to allow immediate access for demo
   // Change this to the actual birthday date: new Date(2026, 2, 25) for March 25, 2026
   const birthdayDate = new Date(2026, 1, 25); // February 25, 2026 (adjust as needed)
   const now = new Date();
-  
+
   const [isUnlocked, setIsUnlocked] = useState(now >= birthdayDate);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -48,14 +48,14 @@ export function GatekeeperPage() {
         <motion.div
           className="absolute top-10 left-10"
           animate={{ rotate: 360, scale: [1, 1.2, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         >
           <Heart className="w-16 h-16 fill-pink-300/30 stroke-pink-400/40" />
         </motion.div>
         <motion.div
           className="absolute bottom-20 right-20"
           animate={{ rotate: -360, scale: [1, 1.3, 1] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
         >
           <Heart className="w-20 h-20 fill-purple-300/30 stroke-purple-400/40" />
         </motion.div>
@@ -65,7 +65,7 @@ export function GatekeeperPage() {
         className="relative z-10 max-w-md w-full"
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
-        transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+        transition={{ type: "spring", stiffness: 200, damping: 15 }}
       >
         <div className="backdrop-blur-2xl bg-white/40 border-2 border-white/60 rounded-3xl shadow-2xl p-8">
           {/* Bears */}
@@ -84,7 +84,7 @@ export function GatekeeperPage() {
           </motion.h1>
 
           <p className="text-center text-pink-700 mb-6">
-            A birthday celebration for Saara
+            A birthday celebration for Sania
           </p>
 
           {!isUnlocked ? (
@@ -92,19 +92,21 @@ export function GatekeeperPage() {
               {/* Countdown */}
               <div className="grid grid-cols-4 gap-3 mb-6">
                 {[
-                  { label: 'Days', value: timeLeft.days },
-                  { label: 'Hours', value: timeLeft.hours },
-                  { label: 'Minutes', value: timeLeft.minutes },
-                  { label: 'Seconds', value: timeLeft.seconds },
+                  { label: "Days", value: timeLeft.days },
+                  { label: "Hours", value: timeLeft.hours },
+                  { label: "Minutes", value: timeLeft.minutes },
+                  { label: "Seconds", value: timeLeft.seconds },
                 ].map((item) => (
                   <div
                     key={item.label}
                     className="backdrop-blur-xl bg-gradient-to-br from-pink-200/50 to-purple-200/50 rounded-2xl p-3 border border-white/50"
                   >
                     <div className="text-2xl font-bold text-pink-900 text-center">
-                      {item.value.toString().padStart(2, '0')}
+                      {item.value.toString().padStart(2, "0")}
                     </div>
-                    <div className="text-xs text-pink-600 text-center">{item.label}</div>
+                    <div className="text-xs text-pink-600 text-center">
+                      {item.label}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -126,17 +128,22 @@ export function GatekeeperPage() {
                 className="text-center mb-6"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ type: 'spring', stiffness: 200 }}
+                transition={{ type: "spring", stiffness: 200 }}
               >
                 <Unlock className="w-16 h-16 mx-auto text-pink-600 mb-2" />
-                <p className="text-pink-700 font-medium">🎉 It's time to celebrate! 🎉</p>
+                <p className="text-pink-700 font-medium">
+                  🎉 It's time to celebrate! 🎉
+                </p>
               </motion.div>
 
               {/* Enter Button */}
               <motion.button
-                onClick={() => navigate('/home')}
+                onClick={() => navigate("/home")}
                 className="w-full py-4 rounded-2xl bg-gradient-to-r from-pink-400 to-purple-400 text-white font-bold shadow-lg"
-                whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(236, 72, 153, 0.3)' }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(236, 72, 153, 0.3)",
+                }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}

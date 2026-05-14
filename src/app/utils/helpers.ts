@@ -1,58 +1,77 @@
 // Utility functions for the birthday app
 
 // Play celebration sound (placeholder - replace with actual audio files)
-export const playCelebrationSound = (type: 'yay' | 'confetti' | 'whoosh' = 'yay') => {
+export const playCelebrationSound = (
+  type: "yay" | "confetti" | "whoosh" = "yay",
+) => {
   try {
     // In production, you would load actual audio files:
     // const audio = new Audio(`/sounds/${type}.mp3`);
     // audio.play();
-    
+
     // For now, using Web Audio API to generate a simple cheerful tone
-    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const audioContext = new (
+      window.AudioContext || (window as any).webkitAudioContext
+    )();
     const oscillator = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
-    
+
     oscillator.connect(gainNode);
     gainNode.connect(audioContext.destination);
-    
-    if (type === 'yay') {
+
+    if (type === "yay") {
       // Happy ascending tone
       oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
-      oscillator.frequency.exponentialRampToValueAtTime(784, audioContext.currentTime + 0.3); // G5
+      oscillator.frequency.exponentialRampToValueAtTime(
+        784,
+        audioContext.currentTime + 0.3,
+      ); // G5
       gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-    } else if (type === 'confetti') {
+      gainNode.gain.exponentialRampToValueAtTime(
+        0.01,
+        audioContext.currentTime + 0.3,
+      );
+    } else if (type === "confetti") {
       // Sparkle sound
       oscillator.frequency.setValueAtTime(1046.5, audioContext.currentTime); // C6
       gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+      gainNode.gain.exponentialRampToValueAtTime(
+        0.01,
+        audioContext.currentTime + 0.2,
+      );
     } else {
       // Whoosh sound
-      oscillator.type = 'sawtooth';
+      oscillator.type = "sawtooth";
       oscillator.frequency.setValueAtTime(100, audioContext.currentTime);
-      oscillator.frequency.exponentialRampToValueAtTime(50, audioContext.currentTime + 0.3);
+      oscillator.frequency.exponentialRampToValueAtTime(
+        50,
+        audioContext.currentTime + 0.3,
+      );
       gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+      gainNode.gain.exponentialRampToValueAtTime(
+        0.01,
+        audioContext.currentTime + 0.3,
+      );
     }
-    
+
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.3);
   } catch (error) {
-    console.log('Audio playback not supported:', error);
+    console.log("Audio playback not supported:", error);
   }
 };
 
 // Generate random pastel color for decorative elements
 export const getRandomPastelColor = () => {
   const pastels = [
-    '#FFB6C1', // Light Pink
-    '#FF69B4', // Hot Pink
-    '#DDA0DD', // Plum
-    '#E6E6FA', // Lavender
-    '#FFC0CB', // Pink
-    '#F0E6FF', // Light Purple
-    '#FFE4E1', // Misty Rose
-    '#D8BFD8', // Thistle
+    "#FFB6C1", // Light Pink
+    "#FF69B4", // Hot Pink
+    "#DDA0DD", // Plum
+    "#E6E6FA", // Lavender
+    "#FFC0CB", // Pink
+    "#F0E6FF", // Light Purple
+    "#FFE4E1", // Misty Rose
+    "#D8BFD8", // Thistle
   ];
   return pastels[Math.floor(Math.random() * pastels.length)];
 };
@@ -61,11 +80,11 @@ export const getRandomPastelColor = () => {
 export const formatTimeRemaining = (date: Date) => {
   const now = new Date();
   const difference = date.getTime() - now.getTime();
-  
+
   if (difference <= 0) {
     return { days: 0, hours: 0, minutes: 0, seconds: 0, isReached: true };
   }
-  
+
   return {
     days: Math.floor(difference / (1000 * 60 * 60 * 24)),
     hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
@@ -83,13 +102,26 @@ export const isBirthday = (birthdayDate: Date) => {
 
 // Get a random celebration emoji
 export const getRandomCelebrationEmoji = () => {
-  const emojis = ['🎉', '🎊', '🎈', '🎁', '🎂', '✨', '💖', '🌟', '💝', '🎀', '🦋', '🌸'];
+  const emojis = [
+    "🎉",
+    "🎊",
+    "🎈",
+    "🎁",
+    "🎂",
+    "✨",
+    "💖",
+    "🌟",
+    "💝",
+    "🎀",
+    "🦋",
+    "🌸",
+  ];
   return emojis[Math.floor(Math.random() * emojis.length)];
 };
 
 // Vibrate device (if supported) for haptic feedback
 export const vibrateDevice = (pattern: number | number[] = 50) => {
-  if ('vibrate' in navigator) {
+  if ("vibrate" in navigator) {
     navigator.vibrate(pattern);
   }
 };
@@ -97,26 +129,26 @@ export const vibrateDevice = (pattern: number | number[] = 50) => {
 // Save progress to localStorage
 export const saveProgress = (key: string, value: any) => {
   try {
-    localStorage.setItem(`birthday-saara-${key}`, JSON.stringify(value));
+    localStorage.setItem(`birthday-Sania-${key}`, JSON.stringify(value));
   } catch (error) {
-    console.log('LocalStorage not available:', error);
+    console.log("LocalStorage not available:", error);
   }
 };
 
 // Load progress from localStorage
 export const loadProgress = <T>(key: string, defaultValue: T): T => {
   try {
-    const saved = localStorage.getItem(`birthday-saara-${key}`);
+    const saved = localStorage.getItem(`birthday-Sania-${key}`);
     return saved ? JSON.parse(saved) : defaultValue;
   } catch (error) {
-    console.log('LocalStorage not available:', error);
+    console.log("LocalStorage not available:", error);
     return defaultValue;
   }
 };
 
 // Calculate which page user is on for progress tracking
 export const getPageProgress = (pathname: string): number => {
-  const pages = ['/', '/home', '/memories', '/reasons', '/cake', '/letter'];
+  const pages = ["/", "/home", "/memories", "/reasons", "/cake", "/letter"];
   const index = pages.indexOf(pathname);
   return index === -1 ? 0 : Math.round((index / (pages.length - 1)) * 100);
 };
@@ -150,7 +182,7 @@ export const getConfettiConfig = () => {
   return {
     numberOfPieces: mobile ? 300 : 600,
     gravity: mobile ? 0.3 : 0.2,
-    colors: ['#FFB6C1', '#FF69B4', '#DDA0DD', '#E6E6FA', '#FFC0CB', '#F0E6FF'],
+    colors: ["#FFB6C1", "#FF69B4", "#DDA0DD", "#E6E6FA", "#FFC0CB", "#F0E6FF"],
     recycle: false,
   };
 };
